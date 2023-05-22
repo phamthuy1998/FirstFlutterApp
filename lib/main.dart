@@ -163,9 +163,18 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (value){
-          if (value == 0) MaterialPageRoute(builder: (context) => const MyProfilePage(title: ""));
-          if (value == 1) MaterialPageRoute(builder: (context) => const MyProfilePage(title: ""));
+        onTap: (value) {
+          print("value: $value");
+          if (value == 0)
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Profile()),
+            );
+          else if (value == 1)
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Profile()),
+            );
         },
         items: [
           BottomNavigationBarItem(icon: const Icon(Icons.home), label: "Home"),
