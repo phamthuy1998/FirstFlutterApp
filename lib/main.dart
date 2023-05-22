@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/profile.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -166,14 +167,18 @@ class _MyHomePageState extends State<MyHomePage> {
         onTap: (value) {
           print("value: $value");
           if (value == 0)
-            Navigator.push(
+            PersistentNavBarNavigator.pushNewScreen(
               context,
-              MaterialPageRoute(builder: (context) => const Profile()),
+              screen: MyApp(),
+              withNavBar: false, // OPTIONAL VALUE. True by default.
+              pageTransitionAnimation: PageTransitionAnimation.cupertino,
             );
           else if (value == 1)
-            Navigator.push(
+            PersistentNavBarNavigator.pushNewScreen(
               context,
-              MaterialPageRoute(builder: (context) => const Profile()),
+              screen: Profile(),
+              withNavBar: false, // OPTIONAL VALUE. True by default.
+              pageTransitionAnimation: PageTransitionAnimation.cupertino,
             );
         },
         items: [

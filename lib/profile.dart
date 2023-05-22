@@ -26,12 +26,19 @@ class MyProfilePage extends StatefulWidget {
 }
 
 class _MyProfilePage extends State<MyProfilePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios),
+        leading: GestureDetector(
+          child: Icon(Icons.arrow_back_ios),
+          onTap: () {
+            // Navigator.pop(context);
+            Navigator.of(context).popUntil((route) {
+              return route.settings.name == "ScreenToPopBackTo";
+            });
+          },
+        ),
         title: Text("This is Profile Screen"),
       ),
       body: Container(),
