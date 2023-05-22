@@ -163,6 +163,15 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      customWidget: CustomNavBarWidget( // Your custom widget goes here
+        items: _navBarsItems(),
+        selectedIndex: _controller.index,
+        onItemSelected: (index) {
+          setState(() {
+            _controller.index = index; // NOTE: THIS IS CRITICAL!! Don't miss it!
+          });
+        },
+      ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (value) {
           print("value: $value");
