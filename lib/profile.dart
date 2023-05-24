@@ -1,20 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
-class Profile extends StatelessWidget {
-  const Profile({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyProfilePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
 
 class MyProfilePage extends StatefulWidget {
   const MyProfilePage({super.key, required this.title});
@@ -26,6 +12,17 @@ class MyProfilePage extends StatefulWidget {
 }
 
 class _MyProfilePage extends State<MyProfilePage> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,9 +31,10 @@ class _MyProfilePage extends State<MyProfilePage> {
           child: Icon(Icons.arrow_back_ios),
           onTap: () {
             // Navigator.pop(context);
-            Navigator.of(context).popUntil((route) {
-              return route.settings.name == "ScreenToPopBackTo";
-            });
+            // Navigator.of(context).popUntil((route) {
+            //   return route.settings.name == "ScreenToPopBackTo";
+            // });
+            Get.back();
           },
         ),
         title: Text("This is Profile Screen"),
